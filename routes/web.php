@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ GuestHomeController::class, 'index']);
+Route::get('/', [ GuestHomeController::class, 'index'])->name('home');
 
 Route::get('/home', [AdminHomeController::class, 'index'] )->middleware('auth')->name('home');
 

@@ -1,0 +1,11 @@
+@import "~bootstrap/scss/bootstrap";
+
+nav.navbar {
+    height: 70px;
+    z-index: 1;
+}
+
+main.main {
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+}

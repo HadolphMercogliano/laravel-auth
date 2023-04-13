@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Usando Vite -->
-    @vite(['resources/js/app.js'])
+    @vite(['resources/js/admin_app.js'])
 </head>
 
 <body>
@@ -25,7 +25,7 @@
         @include('partials.navbar')
       </header>
 
-        <main class="">
+        <main class="main">
             @yield('title')            
             @yield('content')
         </main>

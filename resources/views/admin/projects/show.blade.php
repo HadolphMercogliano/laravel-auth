@@ -13,7 +13,7 @@
     <div class="card col-6 p-3">
       <div class="card-body">
         <div class="col-12">
-          <img class="img-fluid mb-3" src="{{$project->link}}" alt="">
+          <img class="img-fluid mb-3" src="{{$project->link}}" alt="Immagine">
         </div>
         <div class="col-12">
           <h3 class="card-title text-center mb-4 "> {{ $project->title }}</h3>

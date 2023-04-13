@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ GuestHomeController::class, 'index'])->name('home');
 
-Route::get('/home', [AdminHomeController::class, 'index'] )->middleware('auth')->name('home');
+Route::get('/home', [ProjectController::class, 'index'] )->middleware('auth')->name('home');
 
 Route::middleware('auth')
 ->prefix('admin')

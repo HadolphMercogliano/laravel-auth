@@ -2,7 +2,15 @@
 
 @section('title')
 <div class="container">
-  <h3 class="my-4"> Progetto</h3>
+  <div class="d-flex align-items-center justify-content-between">
+    <h3 class="my-4"> Progetto</h3>
+
+    
+    <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary"> Modifica progetto</a>
+
+    <a href="{{route('admin.projects.index')}}" class="btn btn-primary">Torna all'indice</a>
+
+  </div>
 </div>
 
 @endsection

@@ -33,7 +33,7 @@
             <td>{{$project->link}}</td>
             <td>
               <a href="{{ route('admin.projects.show', $project) }}">Dettagli</a>
-              {{-- <a href="{{ route('projects.edit', $project) }}" class="text-warning"> Mod</a> --}}
+              <a href="{{ route('admin.projects.edit', $project) }}" class="text-warning"> Mod</a>
 
               {{-- <form action="{{ route('projects.destroy', $song) }}" method="POST" class="text-danger d-inline">
                 @method('delete')

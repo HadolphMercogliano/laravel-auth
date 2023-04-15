@@ -35,12 +35,12 @@
               <a href="{{ route('admin.projects.show', $project) }}">Dettagli</a>
               <a href="{{ route('admin.projects.edit', $project) }}" class="text-warning"> Mod</a>
 
-              {{-- <form action="{{ route('projects.destroy', $song) }}" method="POST" class="text-danger d-inline">
+              <form action="{{ route('admin.projects.destroy', $project) }}" method="POST" class="text-danger d-inline">
                 @method('delete')
                 @csrf
-                <button type="submit" class="btn-destroy">Del</button>
+                <button type="submit" class="btn text-danger">Del</button>
               </form>
-          </td> --}}
+          </td>
             </tr>
             @endforeach
         </tbody>

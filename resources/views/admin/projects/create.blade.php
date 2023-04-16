@@ -17,14 +17,14 @@
     <div class="container">
       <div class="card">
         <div class="card-body">
-          <form method="POST" action="{{route('admin.projects.store')}}">
+          <form method="POST" action="{{route('admin.projects.store')}}" enctype="multipart/form-data">
           @csrf
 
             <label for="title">title</label>
             <input type="text" name="title" id="title" class="form-control mb-3">
 
             <label for="link">link</label>  
-            <input type="text" name="link" id="link" class="form-control mb-3">
+            <input type="file" name="link" id="link" class="form-control mb-3">
 
             <label for="description">description</label>  
             <textarea type="textarea" name="description" id="description" class="form-control mb-3" rows="3"></textarea>

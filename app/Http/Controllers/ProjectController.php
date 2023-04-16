@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+
 
 class ProjectController extends Controller
 {
@@ -31,6 +34,10 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
       $data = $this->validation($request->all());
+        // dd($data);
+        if(Arr::exists($data, 'link')) {
+          Storage::put('', $data['link']);
+        }
 
         $project = new Project;        
         $project->fill($data);
@@ -91,7 +98,7 @@ class ProjectController extends Controller
         [
           'title' =>'required|string',
           'description' =>'required|string',
-          'link' =>'required|string',
+          'link' =>'required|image|mimes: jpg,png, jpeg',
         ],
         [
           'title.required' => 'Il nome del progetto è obbligatorio',
@@ -101,7 +108,8 @@ class ProjectController extends Controller
           'description.string' => 'La descrizione del progetto deve essere una stringa',
 
           'link.required' => 'Il link del progetto è obbligatorio',
-          'link.string' => 'Il link del progetto deve essere una stringa',
+          'link.image' => 'Il file caricato deve essere un immagine',
+          'link.mimes' => 'le estenzioni dei file accettate sono: jpg, png, jpeg.',
         ]
         )->validate();
         return $validator;

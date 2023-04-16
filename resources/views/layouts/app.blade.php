@@ -27,7 +27,15 @@
 
         <main class="main">
             @yield('title')
-            @yield('alert')
+            <div class="container">
+              <div class="w-50 my-3">
+                @if (session('message_content'))
+                <div class="alert {{session('message_type')}}">
+                  {{session('message_content')}}
+                </div>                    
+                @endif
+              </div>
+            </div>    
             @yield('content')
         </main>
     </div>

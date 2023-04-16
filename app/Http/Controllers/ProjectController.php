@@ -36,7 +36,9 @@ class ProjectController extends Controller
         $project->fill($data);
         $project->save();
 
-        return to_route('admin.projects.show', $project)->with('message', 'Progetto aggiunto correttamente');
+        return to_route('admin.projects.show', $project)
+                ->with('message_type', 'alert-success')
+                ->with('message_content', 'Progetto aggiunto correttamente');
     }
 
     /**
@@ -64,7 +66,9 @@ class ProjectController extends Controller
       $data = $this->validation($request->all());
       $project->update($data);
 
-      return redirect()->route('admin.projects.show', $project)->with('message', 'Progetto modificato correttamente');
+      return redirect()->route('admin.projects.show', $project)
+      ->with('message_type', 'alert-success')
+      ->with('message_content', 'Progetto modificato correttamente');
     }
 
     /**
@@ -76,7 +80,9 @@ class ProjectController extends Controller
       
       $project->delete();
 
-      return to_route('admin.projects.index')->with('message', 'Progetto eliminato correttamente');
+      return to_route('admin.projects.index')
+      ->with('message_type', 'alert-danger')
+      ->with('message_content', 'Progetto eliminato correttamente');
     }
     
     private function validation($data) {

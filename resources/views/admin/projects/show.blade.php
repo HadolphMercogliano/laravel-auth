@@ -12,19 +12,6 @@
 
 @endsection
 
-@section('alert')
-<div class="container">
-  <div class="w-50 my-3">
-    @if (session('message'))
-    <div class="alert alert-success">
-      {{session('message')}}
-    </div>
-        
-    @endif
-  </div>
-</div>    
-@endsection
-
 @section('content')
 
 <div class="container">

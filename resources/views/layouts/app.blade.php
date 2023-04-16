@@ -26,7 +26,8 @@
       </header>
 
         <main class="main">
-            @yield('title')            
+            @yield('title')
+            @yield('alert')
             @yield('content')
         </main>
     </div>

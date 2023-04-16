@@ -3,10 +3,7 @@
 @section('title')
 <div class="container">
   <div class="d-flex align-items-center justify-content-between">
-    <h3 class="my-4"> Progetto</h3>
-
-    
-    <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary"> Modifica progetto</a>
+    <h3 class="my-4"> Progetto: {{$project->title}}</h3>
 
     <a href="{{route('admin.projects.index')}}" class="btn btn-primary">Torna all'indice</a>
 
@@ -14,6 +11,20 @@
 </div>
 
 @endsection
+
+@section('alert')
+<div class="container">
+  <div class="w-50 my-3">
+    @if (session('message'))
+    <div class="alert alert-success">
+      {{session('message')}}
+    </div>
+        
+    @endif
+  </div>
+</div>    
+@endsection
+
 @section('content')
 
 <div class="container">
@@ -28,6 +39,7 @@
           <p class="">{{ $project->description}}</p>
         </div>
       </div>     
+      <a href="{{ route('admin.projects.edit', $project) }}" class=" btn btn-primary"> Modifica progetto</a>
     </div>
   </div>
 </div>

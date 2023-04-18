@@ -10,4 +10,7 @@ class Project extends Model
     use HasFactory;
     
     protected $fillable = ['title', 'description', 'link'];
+     public function getAbstract($max = 40) {
+      return substr($this->description, 0 , $max) . '...';
+    }
 }

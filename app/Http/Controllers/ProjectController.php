@@ -76,10 +76,12 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
       $data = $this->validation($request->all());
+
       if(Arr::exists($data, 'link')) {
           $path = Storage::put('projectImages', $data['link']);
           $data['link'] = $path;
         }
+
       $project->update($data);
 
       return redirect()->route('admin.projects.show', $project)
@@ -105,7 +107,7 @@ class ProjectController extends Controller
         [
           'title' =>'required|string',
           'description' =>'required|string',
-          'link' =>'required|image|mimes: jpg,png, jpeg',
+          'link' =>'image|mimes: jpg,png, jpeg',
         ],
         [
           'title.required' => 'Il nome del progetto è obbligatorio',
@@ -114,7 +116,6 @@ class ProjectController extends Controller
           'description.required' => 'La descrizione del progetto è obbligatoria',
           'description.string' => 'La descrizione del progetto deve essere una stringa',
 
-          'link.required' => 'Il link del progetto è obbligatorio',
           'link.image' => 'Il file caricato deve essere un immagine',
           'link.mimes' => 'le estenzioni dei file accettate sono: jpg, png, jpeg.',
         ]

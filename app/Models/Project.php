@@ -15,7 +15,7 @@ class Project extends Model
       return substr($this->description, 0 , $max) . '...';
     }
 
-    protected function getLinkAttribute($value) {
-     return $value ? asset('storage/' . $value) : 'https://scheepvaartwinkel.com/wp-content/uploads/2021/01/placeholder.png';
+    public function getLinkUri() {
+     return $this->link ? asset('storage/' . $this->link) : 'https://scheepvaartwinkel.com/wp-content/uploads/2021/01/placeholder.png';
     }
 }

@@ -22,10 +22,16 @@
 					<label for="title">title</label>
 					<input type="text" name="title" id="title" class="form-control mb-3"
 						value="{{ old('title') ?? $project->title }}">
-
-					<label for="link">link</label>
-					<input type="file" name="link" id="link" class="form-control mb-3"
-						value="{{ old('link') ?? $project->link }}">
+					<div class="row align-items-center">
+						<div class="col-10">
+							<label for="link">link</label>
+							<input type="file" name="link" id="link" class="form-control mb-3"
+								value="{{ old('link') ?? $project->link }}">
+						</div>
+						<div class="col-2">
+							<img class="img-fluid" src="{{ $project->getLinkUri() }}" alt="">
+						</div>
+					</div>
 
 					<label for="description">description</label>
 					<textarea type="textarea" name="description" id="description" class="form-control mb-3" rows="3">{{ old('description') ?? $project->description }}</textarea>

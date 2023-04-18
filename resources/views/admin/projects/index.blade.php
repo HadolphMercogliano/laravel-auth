@@ -47,7 +47,7 @@
 						<th scope="row">{{ $project->id }}</th>
 						<td>{{ $project->title }}</td>
 						<td>{{ $project->getAbstract() }}</td>
-						<td>{{ $project->link }}</td>
+						<td>{{ $project->getLinkUri() }}</td>
 
 						<td>
 							<div>

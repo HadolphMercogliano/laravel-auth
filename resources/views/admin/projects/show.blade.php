@@ -23,7 +23,7 @@
 						<h3 class="card-title mb-4 ">Titolo: {{ $project->title }}</h3>
 						<p class="">Descrizione: {{ $project->description }}</p>
 					</div>
-					<img class="img-fluid col-4 mb-3" src="{{ $project->link }}" alt="{{ $project->title }}">
+					<img class="img-fluid col-4 mb-3" src="{{ $project->getLinkUri() }}" alt="{{ $project->title }}">
 				</div>
 				<a href="{{ route('admin.projects.edit', $project) }}" class=" btn btn-primary"> Modifica progetto</a>
 			</div>

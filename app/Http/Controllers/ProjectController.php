@@ -76,6 +76,10 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
       $data = $this->validation($request->all());
+      if(Arr::exists($data, 'link')) {
+          $path = Storage::put('projectImages', $data['link']);
+          $data['link'] = $path;
+        }
       $project->update($data);
 
       return redirect()->route('admin.projects.show', $project)

@@ -15,7 +15,7 @@
 	<div class="container">
 		<div class="card">
 			<div class="card-body">
-				<form method="POST" action="{{ route('admin.projects.update', $project) }}">
+				<form method="POST" action="{{ route('admin.projects.update', $project) }}" enctype="multipart/form-data">
 					@csrf
 					@method('put')
 
@@ -24,7 +24,7 @@
 						value="{{ old('title') ?? $project->title }}">
 
 					<label for="link">link</label>
-					<input type="text" name="link" id="link" class="form-control mb-3"
+					<input type="file" name="link" id="link" class="form-control mb-3"
 						value="{{ old('link') ?? $project->link }}">
 
 					<label for="description">description</label>

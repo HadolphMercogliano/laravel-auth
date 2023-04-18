@@ -40,7 +40,8 @@ class ProjectController extends Controller
       $data = $this->validation($request->all());
         // dd($data);
         if(Arr::exists($data, 'link')) {
-          Storage::put('', $data['link']);
+          $path = Storage::put('projectImages', $data['link']);
+          $data['link'] = $path;
         }
 
         $project = new Project;        
@@ -86,9 +87,7 @@ class ProjectController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Project $project)
-    {
-
-      
+    {    
       $project->delete();
 
       return to_route('admin.projects.index')

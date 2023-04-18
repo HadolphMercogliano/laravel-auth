@@ -78,6 +78,7 @@ class ProjectController extends Controller
       $data = $this->validation($request->all());
 
       if(Arr::exists($data, 'link')) {
+        if($project->link) Storage::delete($project->link);
           $path = Storage::put('projectImages', $data['link']);
           $data['link'] = $path;
         }
@@ -93,7 +94,8 @@ class ProjectController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Project $project)
-    {    
+    {
+      if($project->link) Storage::delete($project->link); 
       $project->delete();
 
       return to_route('admin.projects.index')
@@ -108,6 +110,7 @@ class ProjectController extends Controller
           'title' =>'required|string',
           'description' =>'required|string',
           'link' =>'image|mimes: jpg,png, jpeg',
+          'is_published' =>'boolean'
         ],
         [
           'title.required' => 'Il nome del progetto è obbligatorio',
@@ -118,6 +121,7 @@ class ProjectController extends Controller
 
           'link.image' => 'Il file caricato deve essere un immagine',
           'link.mimes' => 'le estenzioni dei file accettate sono: jpg, png, jpeg.',
+          'is_published.boolean' => 'Il valore deve essere un booleano'
         ]
         )->validate();
         return $validator;

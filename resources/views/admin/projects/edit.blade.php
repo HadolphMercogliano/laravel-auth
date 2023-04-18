@@ -22,6 +22,11 @@
 					<label for="title">title</label>
 					<input type="text" name="title" id="title" class="form-control mb-3"
 						value="{{ old('title') ?? $project->title }}">
+
+					<label for="is_published">published</label>
+					<input type="checkbox" name="is_published" id="is_published" class="form-check-control mb-3"
+						@checked(old('is_published', $project->is_published)) value="1" />
+
 					<div class="row align-items-center">
 						<div class="col-10">
 							<label for="link">link</label>

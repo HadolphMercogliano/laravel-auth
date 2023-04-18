@@ -21,6 +21,12 @@
 					<label for="title">title</label>
 					<input type="text" name="title" id="title" class="form-control mb-3">
 
+					<div>
+						<label for="is_published">Published </label>
+						<input type="checkbox" name="is_published" id="is_published" class="form-check-control d-inline-block mb-3"
+							value="1">
+					</div>
+
 					<label for="link">link</label>
 					<input type="file" name="link" id="link" class="form-control mb-3">
 
@@ -32,4 +38,7 @@
 			</div>
 		</div>
 	</div>
+@endsection
+
+@section('scripts')
 @endsection

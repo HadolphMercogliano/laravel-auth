@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Project extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     
-    protected $fillable = ['title','is_published', 'description', 'link', ];
+    protected $fillable = ['title', 'is_published', 'description', 'link' ];
 
      public function getAbstract($max = 40) {
       return substr($this->description, 0 , $max) . '...';

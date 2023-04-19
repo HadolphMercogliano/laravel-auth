@@ -4,8 +4,10 @@
 	<div class="container">
 		<div class="d-flex align-items-center justify-content-between">
 			<h3 class="my-4"> Tutti i progetti</h3>
-
-			<a href="{{ route('admin.projects.create') }}" class="btn btn-primary">Nuovo progetto</a>
+			<div>
+				<a href="{{ route('admin.projects.create') }}" class="btn btn-primary">Nuovo progetto</a>
+				<a href="{{ route('admin.projects.trash') }}" class="btn btn-secondary">Cestino</a>
+			</div>
 
 		</div>
 	</div>

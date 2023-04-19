@@ -62,11 +62,41 @@
 						<td>{{ $project->deleted_at }}</td>
 						<td>{{ $project->getLinkUri() }}</td>
 						<td>
+							<a type="button" data-bs-toggle="modal" data-bs-target="#restore-modal-{{ $project->id }}">
+								<i class="bi bi-box-arrow-up-left mx-2"></i>
+							</a>
 							<a type="button" class="text-danger" data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $project->id }}">
 								<i class="bi bi-trash mx-2"></i>
 							</a>
 							@foreach ($projects as $project)
 								<!-- Modal -->
+								<div class="modal fade text-dark" id="restore-modal-{{ $project->id }}" tabindex="-1"
+									aria-labelledby="restore-modal-{{ $project->id }}-label" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h1 class="modal-title fs-5" id="restore-modal-{{ $project->id }}-label">
+													Conferma ripristino</h1>
+												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+											<div class="modal-body text-start">
+												Sei sicuro di voler ripristinare il progetto
+												<strong>{{ $project->title }}</strong>?
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+
+												<form action="{{ route('admin.projects.restore', $project) }}" method="POST" class="">
+													@method('put')
+													@csrf
+
+													<button type="submit" class="btn btn-primary">Ripristina</button>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+
 								<div class="modal fade text-dark" id="delete-modal-{{ $project->id }}" tabindex="-1"
 									aria-labelledby="delete-modal-{{ $project->id }}-label" aria-hidden="true">
 									<div class="modal-dialog">
